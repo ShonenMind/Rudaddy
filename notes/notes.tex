@@ -3,10 +3,12 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{amsthm}
+\usepackage{enumerate}  
 
 \theoremstyle{definition}
 \newtheorem{exmp}{Example}[section]
 \newtheorem{prop}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
 
 \title{Rudin Textbook Notes}
 \author{Arjun}
@@ -52,9 +54,24 @@ There is NO smallest element in $B$.
 Very similar proof. We have some rational $p$ such that $p^2 > 2$. Now, define a new rational $q$ such that $q = p - \frac{p^2-2}{p-2} = \frac{2(p+1)}{(p+2)}$. Why do we define a rational like so? Well, for one, $q < p$, because $\frac{p^2-2}{p+2}$ is greater than zero. Also, $q^2 - 2 = \frac{2(p^2-2}{(p+2)^2} > 0$. Therefore, for some arbitrary rational $p$ such that $p^2 > 2$, we have found another rational $q$ such that $q < p$ and $q^2 > 2$.
 \end{proof}
 
-\noindent The reason we went through this whole process is to show that even though, say, there's a rational between any two rationals, there are still "gaps" that the rationals have. That's where the real numbers come into play!
+\noindent The reason we went through this whole process is to show that even though, say, there's a rational between any two rationals, there are still "gaps" that the rationals have. That's where the real numbers come into play! \\
+To talk about these gaps, it's necessary to talk about bounds, first. 
 
+\begin{definition}
+Suppose $S$ is an ordered set, and $E \subset S$. If there exists a $\beta \in S$ such that $x \leq \beta$ $\forall x \in S$, then $\beta$ is an \textbf{upper bound} of $E$. A similar definition for \textbf{lower bound}.
+\end{definition}
 
+\noindent This is a good definition, but an upper/lower bound for a set is NOT unique. In other words, there can be multiple, if not an infinite number of upper/lower bounds for a set. If there a way to define a unique bound? Yes!
+\begin{definition}
+Suppose $S$ is an ordered set, and $E \subset S$ is bounded above. Suppose there is an element $\alpha \in S$ with the following properties:
+\begin{enumerate}[(i)]
+\item $\alpha$ is an upper bound of $E$.
+\item If $x < \alpha$, then $x$ is \textbf{not} an upper bound of $E$.
+\end{enumerate}
+Then $\alpha$ is the least upper bound of $E$, also known as the \textbf{supremum} of $E$, and we can say $\alpha = \sup E$. \newline
+A similar definition can be made for the greatest lower bound of $E$ (assuming $E$ is bounded below), or the \textbf{infimum} of $E$, so we can say $\gamma = \inf E$.
+
+\end{definition}
 
 \end{section}
 
