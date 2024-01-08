@@ -4,11 +4,13 @@
 \usepackage{graphicx}
 \usepackage{amsthm}
 \usepackage{enumerate}  
+\usepackage{amssymb}
 
 \theoremstyle{definition}
 \newtheorem{exmp}{Example}[section]
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
 
 \title{Rudin Textbook Notes}
 \author{Arjun}
@@ -70,8 +72,23 @@ Suppose $S$ is an ordered set, and $E \subset S$ is bounded above. Suppose there
 \end{enumerate}
 Then $\alpha$ is the least upper bound of $E$, also known as the \textbf{supremum} of $E$, and we can say $\alpha = \sup E$. \newline
 A similar definition can be made for the greatest lower bound of $E$ (assuming $E$ is bounded below), or the \textbf{infimum} of $E$, so we can say $\gamma = \inf E$.
-
+\end{definition} 
+\noindent A natural question that may arise is WHEN a supremum or infimum of a set even exists. For instance, the set $\{p \in \mathbb{Q}  \mathrel{} | \mathrel{} p^2 < 2 \} $ has no least upper bound (or in other words, the supremum doesn't exist). This is where the following definition arises:
+\begin{definition}
+An ordered set $S$ has the \textbf{least-upper-bound property} if any non-empty subset of $S$ that's bounded above has a supremum that exists in $S$.
 \end{definition}
+
+\noindent A similar definition can be made for the greatest-upper-bound property, and it turns out that every ordered set with one property also has the other property. This leads to the following important theorem, which highlights a close relation between greatest lower bounds and least upper bounds:
+
+\begin{theorem}
+Suppose that $S$ is an ordered set with the least-upper-bound property, $B \subset S$, $B$ is non-empty, and $B$ is bounded below. Let $L$ be the set of all lower bounds of $B$. Then \[ \alpha = \sup L\]exists in $S$, and $\alpha = \inf B$. In other words, $\inf B$ exists in $S$.
+\end{theorem}
+
+\begin{proof}
+Since we know that our subset $B$ is bounded below, $L$ is certainly not empty. In fact, since $L$ consists of all $y \in S$ such that $y \leq x$ $\forall x \in B$, it is also true that every $x \in B$ is an upper bound of $L$. This means that $L$ is bounded above, and since our ordered set $S$ has the least-upper-bound property, the supremum of $L$ indeed exists, call it $\alpha$. \\
+If $\gamma < \alpha$, then since $\alpha$ is the supremum of $L$, $\gamma$ is not an upper bound of $L$, so $\gamma \notin B$. Therefore, an element of $B$ CANNOT be less than $\alpha$. Rather, all elements of $B$ must be greater than or equal to $\alpha$. So, since $L$ is the set of all lower bounds of $B$, and $\alpha$ is indeed a lower bound of $B$, $\alpha \in L$. \\
+Now, since $\alpha$ is an upper bound of $L$, if $\beta > \alpha$, then $\beta \notin L$. With this, we have shown that $\alpha$ is a lower bound of $B$ (since $\alpha \in L$), and if $\beta > \alpha$, then $\beta \notin L$. These are all the qualifications for a value to be an infimum, and so we can therefore say that $\alpha = \inf B$.
+\end{proof}
 
 \end{section}
 
