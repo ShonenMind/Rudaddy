@@ -4,10 +4,61 @@
 \usepackage{graphicx}
 \usepackage{amsthm}
 
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+\newtheorem{prop}{Proposition}[section]
+
 \title{Rudin Textbook Notes}
 \author{Arjun}
 
 \begin{document}
 \maketitle
+\begin{center}
  It begins!
+ \end{center}
+ \newpage
+\begin{center}
+ Chapter 1: The Real and Complex Number Systems
+ \end{center}
+ 
+ \begin{section}
+ \noindent The rational numbers are inadequate, both as a field and an unordered set.
+ \begin{exmp}
+There is no rational number $p$ such that $p^2 = 2$.
+\end{exmp}
+
+
+\begin{proof}
+For the sake of contradiction, assume that $p^2 = 2$ has a rational solution, $\frac{a}{b}$ ,where $a$ and $b$ are integers such that $\gcd (a,b) = 1$. Therefore, we can take the square root of both sides as so: 
+\[ \sqrt{2} = \frac{a}{b} \]
+Through algebraic manipulation, we then get 
+\[ 2a^2 = b^2 \]
+This means $b$ must be even, and so $b^2$ is divisible by $4$. This means $a$ must also be even. Contradiction, as we assumed that $\gcd (a,b) = 1$.
+\end{proof}
+
+\noindent Now, something more interesting: let $A$ be the set of positive rationals $p$ such that $p^2 < 2$, and $B$ be the set of positive rationals $p$ such that $p^2 > 2$.
+
+\begin{prop}
+There is NO largest element in $A$.
+\end{prop}
+\begin{proof}
+We have some rational $p$ such that $p^2 < 2$. Now, define a new rational $q$ such that $q = p - \frac{p^2-2}{p-2} = \frac{2(p+1)}{(p+2)}$. Why do we define a rational like so? Well, for one, $q > p$, because $\frac{p^2-2}{p+2}$ is less than zero. Also, $q^2 - 2 = \frac{2(p^2-2)}{(p+2)^2} < 0$. Therefore, for some arbitrary rational $p$ such that $p^2 < 2$, we have found another rational $q$ such that $q > p$ and $q^2 < 2$.
+\end{proof}
+
+\begin{prop}
+There is NO smallest element in $B$.
+\end{prop}
+\begin{proof}
+Very similar proof. We have some rational $p$ such that $p^2 > 2$. Now, define a new rational $q$ such that $q = p - \frac{p^2-2}{p-2} = \frac{2(p+1)}{(p+2)}$. Why do we define a rational like so? Well, for one, $q < p$, because $\frac{p^2-2}{p+2}$ is greater than zero. Also, $q^2 - 2 = \frac{2(p^2-2}{(p+2)^2} > 0$. Therefore, for some arbitrary rational $p$ such that $p^2 > 2$, we have found another rational $q$ such that $q < p$ and $q^2 > 2$.
+\end{proof}
+
+The reason we went through this whole process is to show that even though, say, there's a rational between any two rationals, there are still "gaps" that the rationals have. That's where the real numbers come into play!
+
+
+
+\end{section}
+
+ 
+ 
+ 
 \end{document}
