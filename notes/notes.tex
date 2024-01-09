@@ -46,24 +46,24 @@ This means $b$ must be even, and so $b^2$ is divisible by $4$. This means $a$ mu
 There is NO largest element in $A$.
 \end{prop}
 \begin{proof}
-We have some rational $p$ such that $p^2 < 2$. Now, define a new rational $q$ such that $q = p - \frac{p^2-2}{p-2} = \frac{2(p+1)}{(p+2)}$. Why do we define a rational like so? Well, for one, $q > p$, because $\frac{p^2-2}{p+2}$ is less than zero. Also, $q^2 - 2 = \frac{2(p^2-2)}{(p+2)^2} < 0$. Therefore, for some arbitrary rational $p$ such that $p^2 < 2$, we have found another rational $q$ such that $q > p$ and $q^2 < 2$.
+We have some rational $p$ such that $p^2 < 2$. Now, define a new rational $q$ such that $q = p - \frac{p^2-2}{p+2} = \frac{2(p+1)}{(p+2)}$. Why do we define a rational like so? Well, for one, $q > p$, because $\frac{p^2-2}{p+2}$ is less than zero. Also, $q^2 - 2 = \frac{2(p^2-2)}{(p+2)^2} < 0$. Therefore, for some arbitrary rational $p$ such that $p^2 < 2$, we have found another rational $q$ such that $q > p$ and $q^2 < 2$.
 \end{proof}
 
 \begin{prop}
 There is NO smallest element in $B$.
 \end{prop}
 \begin{proof}
-Very similar proof. We have some rational $p$ such that $p^2 > 2$. Now, define a new rational $q$ such that $q = p - \frac{p^2-2}{p-2} = \frac{2(p+1)}{(p+2)}$. Why do we define a rational like so? Well, for one, $q < p$, because $\frac{p^2-2}{p+2}$ is greater than zero. Also, $q^2 - 2 = \frac{2(p^2-2}{(p+2)^2} > 0$. Therefore, for some arbitrary rational $p$ such that $p^2 > 2$, we have found another rational $q$ such that $q < p$ and $q^2 > 2$.
+Very similar proof. We have some rational $p$ such that $p^2 > 2$. Now, define a new rational $q$ such that $q = p - \frac{p^2-2}{p+2} = \frac{2(p+1)}{(p+2)}$. Why do we define a rational like so? Well, for one, $q < p$, because $\frac{p^2-2}{p+2}$ is greater than zero. Also, $q^2 - 2 = \frac{2(p^2-2)}{(p+2)^2} > 0$. Therefore, for some arbitrary rational $p$ such that $p^2 > 2$, we have found another rational $q$ such that $q < p$ and $q^2 > 2$.
 \end{proof}
 
-\noindent The reason we went through this whole process is to show that even though, say, there's a rational between any two rationals, there are still "gaps" that the rationals have. That's where the real numbers come into play! \\
+\noindent The reason we went through this whole process is to show that even though, say, there's a rational between any two rationals, there are still gaps that the rationals have. That's where the real numbers come into play! \\
 To talk about these gaps, it's necessary to talk about bounds, first. 
 
 \begin{definition}
 Suppose $S$ is an ordered set, and $E \subset S$. If there exists a $\beta \in S$ such that $x \leq \beta$ $\forall x \in S$, then $\beta$ is an \textbf{upper bound} of $E$. A similar definition for \textbf{lower bound}.
 \end{definition}
 
-\noindent This is a good definition, but an upper/lower bound for a set is NOT unique. In other words, there can be multiple, if not an infinite number of upper/lower bounds for a set. If there a way to define a unique bound? Yes!
+\noindent This is a good definition, but an upper/lower bound for a set is NOT unique. In other words, there can be multiple, if not an infinite number of upper/lower bounds for a set. Is there a way to define a unique bound? Yes!
 \begin{definition}
 Suppose $S$ is an ordered set, and $E \subset S$ is bounded above. Suppose there is an element $\alpha \in S$ with the following properties:
 \begin{enumerate}[(i)]
@@ -78,7 +78,7 @@ A similar definition can be made for the greatest lower bound of $E$ (assuming $
 An ordered set $S$ has the \textbf{least-upper-bound property} if any non-empty subset of $S$ that's bounded above has a supremum that exists in $S$.
 \end{definition}
 
-\noindent A similar definition can be made for the greatest-upper-bound property, and it turns out that every ordered set with one property also has the other property. This leads to the following important theorem, which highlights a close relation between greatest lower bounds and least upper bounds:
+\noindent A similar definition can be made for the greatest-lower-bound property, and it turns out that every ordered set with one of these properties also has the other property. This leads to the following important theorem, which highlights a close relation between greatest lower bounds and least upper bounds:
 
 \begin{theorem}
 Suppose that $S$ is an ordered set with the least-upper-bound property, $B \subset S$, $B$ is non-empty, and $B$ is bounded below. Let $L$ be the set of all lower bounds of $B$. Then \[ \alpha = \sup L\]exists in $S$, and $\alpha = \inf B$. In other words, $\inf B$ exists in $S$.
@@ -90,6 +90,60 @@ If $\gamma < \alpha$, then since $\alpha$ is the supremum of $L$, $\gamma$ is no
 Now, since $\alpha$ is an upper bound of $L$, if $\beta > \alpha$, then $\beta \notin L$. With this, we have shown that $\alpha$ is a lower bound of $B$ (since $\alpha \in L$), and if $\beta > \alpha$, then $\beta \notin L$. These are all the qualifications for a value to be an infimum, and so we can therefore say that $\alpha = \inf B$.
 \end{proof}
 
+\noindent At this point, Rudin goes into field axioms for addition and multiplication (as well as the distributive law that ties both addition and multiplication together). We shall jot down the axioms here, but we won't go into the various remarks and propositions about these axioms.
+
+\begin{definition}
+A \textbf{field} is a set F with two operations, called \textit{addition} and \textit{multiplication}, which satisfy the following ``field axioms":
+\begin{enumerate}
+\item Addition Axioms
+\begin{enumerate}
+\item[(A1)] Addition is closed: if $x \in F$ and $y \in F$, then the sum $x+y \in F$.
+\item[(A2)] Addition is commutative: $x+y = y + x$ for all $x,y \in F$.
+\item[(A3)] Addition is associative: $(x+y) + z = x + (y+z)$ for all $x,y,z \in F$.
+\item[(A4)] Existence of the identity element: $F$ contains an element $0$ such that $0 + x = x$ for all $x \in F$.
+\item[(A5)] Existence of the inverse elements: For every $x \in F$, there exists an element $-x \in F$ such that $x + (-x) = 0$.
+\end{enumerate}
+\item Multiplication Axioms
+\begin{enumerate}
+\item[(M1)] Multiplication is closed: if $x \in F$ and $y \in F$, then the product $xy \in F$.
+\item[(M2)] Multiplication is commutative: $xy = yx$ for all $x,y \in F$. 
+\item[(M3)] Multiplication is associative: $(xy)z = x(yz)$ for all $x,y,z \in F$.
+\item[(M4)] Existence of the identity element: $F$ contains an element $1 \neq 0$ such that $1x = x$ for all $x \in F$.
+\item[(M5)] Existence of the inverse elements: For every \textbf{non-zero} $x \in F$, there exists an element $\frac{1}{x} \in F$ such that $x \cdot \frac{1}{x} = 1$. 
+\end{enumerate}
+\item Distributive Law
+\begin{enumerate}
+\item[(D1)] $x(y+z) = xy + xz$ holds for all $x,y,z \in F$.
+\end{enumerate}
+\end{enumerate}
+\end{definition}
+\noindent While the addition and multiplication axioms are rather disjoint from each other, the distribute law ties them both together. We can also define some sense of order for a field with the following definition.
+
+\begin{definition}
+An \textbf{ordered field} is a field $F$ which is also an ordered set, such that 
+\begin{enumerate}
+\item[(i)] $x + y < x + z$ if $x,y,z \in F$ and $y < z$.
+\item[(ii)] $xy > 0$ if $x \in F$, $y \in F$, $x > 0$, and $y > 0$.
+\end{enumerate}
+\end{definition}
+\noindent With all these definitions made, we can now focus on the core idea of this chapter, which is the existence of the real numbers, as well as how they are constructed. The proof is rather long and tedious, but essential. Get hyped!
+\begin{theorem}
+There exists an ordered field $\mathbb{R}$, called the \textbf{Real Numbers}, which has the least-upper-bound property. Moreover, $\mathbb{R}$ contains $\mathbb{Q}$ as a subfield ($\mathbb{Q} \subset \mathbb{R}$, and each field share the same addition and multiplication operations).
+\end{theorem}
+
+\begin{proof}
+We will be constructing $\mathbb{R}$ from $\mathbb{Q}$, and this construction will be divided into several steps.
+\begin{enumerate}
+\item[Step 1:] The elements $\mathbb{R}$ will constructed by taking specific subsets of $\mathbb{Q}$. These subsets are referred to as \textbf{cuts}. By definition, a cut is any set $\alpha \subset \mathbb{Q}$ with the following properties:
+\begin{enumerate}
+\item[(i)] $\alpha$ is neither the empty set, nor the entire set $\mathbb{Q}$.
+\item[(ii)] If $ p \in \alpha$, and $q \in \mathbb{Q}$, then if $q < p$, $q \in \alpha$.
+\item[(iii)] If $p \in \alpha$, then $p < r$ for some $r \in \alpha$. In other words, $\alpha$ has no maximum element.
+\end{enumerate}
+
+\item[Step 2:] Since we are defining $\mathbb{R}$ to be these cuts, we know that $\mathbb{R}$ is a set (because a set is essentially a collection objects, the official definition is omitted in these notes for now). However, we must show a stronger statement, that $\mathbb{R}$ is actually an ordered set (whose definition, yet again, is omitted for now, and will be added later). 
+\end{enumerate}
+\end{proof}
 \end{section}
 
  
