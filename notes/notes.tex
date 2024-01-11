@@ -128,20 +128,46 @@ An \textbf{ordered field} is a field $F$ which is also an ordered set, such that
 \end{definition}
 \noindent With all these definitions made, we can now focus on the core idea of this chapter, which is the existence of the real numbers, as well as how they are constructed. The proof is rather long and tedious, but essential. Get hyped!
 \begin{theorem}
-There exists an ordered field $\mathbb{R}$, called the \textbf{Real Numbers}, which has the least-upper-bound property. Moreover, $\mathbb{R}$ contains $\mathbb{Q}$ as a subfield ($\mathbb{Q} \subset \mathbb{R}$, and each field share the same addition and multiplication operations).
+There exists an ordered field $R$, called the \textbf{Real Numbers}, which has the least-upper-bound property. Moreover, $R$ contains $\mathbb{Q}$ as a subfield ($\mathbb{Q} \subset R$, and each field share the same addition and multiplication operations).
 \end{theorem}
 
 \begin{proof}
-We will be constructing $\mathbb{R}$ from $\mathbb{Q}$, and this construction will be divided into several steps.
+We will be constructing $R$ from $\mathbb{Q}$, and this construction will be divided into several steps.
 \begin{enumerate}
-\item[Step 1:] The elements $\mathbb{R}$ will constructed by taking specific subsets of $\mathbb{Q}$. These subsets are referred to as \textbf{cuts}. By definition, a cut is any set $\alpha \subset \mathbb{Q}$ with the following properties:
+\item[Step 1:] The elements $R$ will constructed by taking specific subsets of $\mathbb{Q}$. These subsets are referred to as \textbf{cuts}. By definition, a cut is any set $\alpha \subset \mathbb{Q}$ with the following properties:
 \begin{enumerate}
 \item[(i)] $\alpha$ is neither the empty set, nor the entire set $\mathbb{Q}$.
 \item[(ii)] If $ p \in \alpha$, and $q \in \mathbb{Q}$, then if $q < p$, $q \in \alpha$.
 \item[(iii)] If $p \in \alpha$, then $p < r$ for some $r \in \alpha$. In other words, $\alpha$ has no maximum element.
 \end{enumerate}
+From this point on in this construction, $p$, $q$, and $r$ will denote rational numbers, while $\alpha$, $\beta$, and $\gamma$ will denote cuts.
 
-\item[Step 2:] Since we are defining $\mathbb{R}$ to be these cuts, we know that $\mathbb{R}$ is a set (because a set is essentially a collection objects, the official definition is omitted in these notes for now). However, we must show a stronger statement, that $\mathbb{R}$ is actually an ordered set (whose definition, yet again, is omitted for now, and will be added later). 
+\item[Step 2:] Since we are defining $R$ to be these cuts, we know that $R$ is a set (because a set is essentially a collection objects, the official definition is omitted in these notes for now). However, we must show a stronger statement, namely that $R$ is actually an ordered set (whose definition, yet again, is omitted for now, and will be added later). \\
+Firstly, we define $\alpha < \beta$ to mean that $\alpha$ is a proper subset of $\beta$. (Will fill out rest of the proof later)
+
+\item[Step 3:] We not must show that the ordered set $R$ has the least-upper-bound property. This requires us to show that a nonempty subset of $R$ that's bounded above by some $\beta\in R$, so say some set $A$, has a well-defined supremum. \\
+We can define $\gamma$ to be the union of all $\alpha \in A$, where $\alpha$ is some cut. This means $p \in \gamma$ if and only if  $p \in \alpha$ for some $\alpha \in A$. Our goal now is to prove that $\gamma \in R$, and that $\gamma$ is indeed the supremum of $A$.  \\
+To prove that $\gamma \in R$, we need to verify that $\gamma$ satisfies the three properties from Step 1. \\
+Since $A$ is a nonempty set, this means there exists an $\alpha_{0} \in A$ that is nonempty. Since $\alpha \subset \gamma$, $\gamma$ is therefore non-empty. Also, since $\alpha \subset \beta$ for all $\alpha \in A$, this means that $\gamma \subset \beta$, since $\gamma$ is the defined to be the union of all $\alpha \in A$. So, since $\gamma$ is a proper subset of $\beta$, which could be at most $\mathbb{Q}$, we can be sure that $\gamma \neq \mathbb{Q}$. Therefore, the first property is satisfied. \checkmark \\
+Pick some $p \in \gamma$. This means $p \in \alpha_{i}$ for some $\alpha_{i} \in A$. If $q < p$, then $q \in \alpha_{i}$ (by properties of a cut). Therefore, since $q \in \alpha_{i}$, $q \in \gamma$. This satisfies the second property. \checkmark \\
+Now, choose some rational number $r \in \alpha_{i}$ such that $r>p$ (we know $r$ exists because $\alpha_{i}$ is a cut). Since $\alpha_{i} \subset \gamma$, $r \in \gamma$. This satisfies the third property. \checkmark \\
+With these three properties being satisfied, we can therefore say that $\gamma \in R$, as it is indeed a cut. \\
+We now need show that $\gamma$ is the supremum of $A$. \\
+Firstly, every $\alpha \in A$ is a subset of $\gamma$ since $\gamma$ is defined to be the union of all $\alpha$, so $\gamma$ is an upper bound. Now, suppose we have some $\delta < \gamma$. Since $\delta$ is a proper subset of $\gamma$, that means there is some $s \in \gamma$ such that $s \not\in \delta$. Since $s \in \gamma$, that means $s \in \alpha_{j}$ for some $\alpha_{j} \in A$. Since $\alpha_{j}$ and $\delta$ are both cuts, and there's a rational number that's present in $\alpha_{j}$ but not in $\delta$, then $\delta \subset \alpha_{j}$. Hence, $\delta$ is not an upper bound for $A$. This gives us the desired result of $\gamma = \sup A$.
+\item[Step 4:] At this point, we shown that the ordered set $R$ has the last-upper-bound property. It will take some work to show that $R$ is actually an ordered field, the first step being to show that $R$ is a field, with the right addition and multiplication definitions. \\
+It's important to realize that at this point, all the elements of $R$ are cuts, so we need to define addition via these cuts. So, if $\alpha$, $\beta \in R$, we can define $\alpha + \beta$ to be the set of all the sums $r+s$, where $r \in \alpha$ and $s \in \beta$. In order to see whether or not this is a valid addition operation, we need to figure out whether all the addition axioms from the definition of a field holds. Before this, we define $0^*$ to be the set of all the negative rational numbers (this is a cut, and therefore a member of $R$). This cut will play the role of $0$, the identity element. 
+\begin{enumerate}
+\item[(A1)] We show that $\alpha + \beta$ is a cut (the three properties from Step 1 hold). 
+\begin{enumerate}
+\item[1)] $\alpha + \beta$ is nonempty, due to both $\alpha$ and $\beta$ being nonempty. Furthermore, take some $r' \not\in\alpha$ and $s'\not\in\beta$. This means that $r' + s' > r + s$ (for any $r \in \alpha$ and $s \in \beta$). Therefore, $r' + s' \not\in \alpha + \beta$, so $\alpha + \beta \neq \mathbb{Q}$. This satisfies the first property. \checkmark \\
+\item[2)] Pick some $p = r + s$, where $r \in \alpha$ and $s \in \beta$. If $q < p$, then $q < r + s \Rightarrow q - s < r$, so $q-s \in \alpha$. So, $q = (q-s) + s \in \alpha + \beta$, which satisfies the second property. \checkmark \\
+\item[3)] Choose some $t \in \alpha$ such that $t > r$. That means $p < t + s$, and $t+s \in \alpha + \beta$, so we have showed that an element larger than $p$ is in $\alpha + \beta$, which satisfies the third property. \checkmark 
+\end{enumerate}
+This ultimately satisfies the closure property for $\alpha + \beta$.
+\end{enumerate}
+\item[(A2)] Just like how $\alpha + \beta$ is the set of all $r+s$, with $r \in\alpha$ and $s\in\beta$, we can say $\beta + \alpha$ is the set of all $s+r$. $r+s=s+r$ for all rationals $r$ and $s$, so $\alpha + \beta = \beta + \alpha$, which satisfies the commutativity property.
+\item[(A3)] This is the associativity property, and it has very similar reasoning to the commutativity property above.
+\item[(A4)] 
 \end{enumerate}
 \end{proof}
 \end{section}
